@@ -26,12 +26,12 @@ export const Key = ({
     'flex items-center justify-center rounded mx-0.5 text-xs font-bold cursor-pointer select-none dark:text-white',
     {
       'transition ease-in-out': isRevealing,
-      'bg-slate-200 dark:bg-slate-600 hover:bg-slate-300 active:bg-slate-400':
+      'bg-slate-200 dark:bg-gray-600 hover:bg-slate-300 active:bg-slate-400':
         !status,
-      'bg-slate-400 dark:bg-slate-800 text-white': status === 'absent',
-      'bg-green-500 hover:bg-green-600 active:bg-green-700 text-white':
-        status === 'correct',
-      'bg-yellow-500 hover:bg-yellow-600 active:bg-yellow-700 text-white':
+      'shadowed bg-slate-400 dark:bg-slate-700 text-white border-slate-400 dark:border-slate-700':
+        status === 'absent',
+      'shadowed bg-lime-500 text-white border-lime-500': status === 'correct',
+      'shadowed bg-yellow-500 dark:bg-lightyellow-700 text-white border-yellow-500 dark:border-lightyellow-700':
         status === 'present',
     }
   )

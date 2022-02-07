@@ -14,9 +14,32 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
         <a
           href="https://github.com/cwackerfuss/react-wordle"
           className="underline font-bold"
+          target={'_blank'}
+          rel="noreferrer"
         >
-          check out the code here
+          This source
+        </a>
+        {' and '}
+        <a
+          href="https://github.com/abrarhayat/anidal"
+          className="underline font-bold"
+          target={'_blank'}
+          rel="noreferrer"
+        >
+          this is the source for the current iteration
         </a>{' '}
+        <span>
+          <br></br>
+          <br></br>Author for this iteration:{' '}
+          <a
+            href="https://abrarhayat.gatsbyjs.io"
+            className="underline font-bold"
+            target={'_blank'}
+            rel="noreferrer"
+          >
+            Abrar Hayat
+          </a>
+        </span>
       </p>
     </BaseModal>
   )
