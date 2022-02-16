@@ -21,7 +21,6 @@ import {
 import {
   MAX_WORD_LENGTH,
   MAX_CHALLENGES,
-  ALERT_TIME_MS,
   REVEAL_TIME_MS,
   GAME_LOST_INFO_DELAY,
 } from './constants/settings'
@@ -177,30 +176,33 @@ function App() {
       return
     }
     if (!(currentGuess.length === MAX_WORD_LENGTH)) {
-      showErrorAlert(NOT_ENOUGH_LETTERS_MESSAGE)
       setCurrentRowClass('jiggle')
-      return setTimeout(() => {
-        setCurrentRowClass('')
-      }, ALERT_TIME_MS)
+      return showErrorAlert(NOT_ENOUGH_LETTERS_MESSAGE, {
+        onClose: () => {
+          setCurrentRowClass('')
+        },
+      })
     }
 
     if (!isWordInWordList(currentGuess)) {
-      showErrorAlert(WORD_NOT_FOUND_MESSAGE)
       setCurrentRowClass('jiggle')
-      return setTimeout(() => {
-        setCurrentRowClass('')
-      }, ALERT_TIME_MS)
+      return showErrorAlert(WORD_NOT_FOUND_MESSAGE, {
+        onClose: () => {
+          setCurrentRowClass('')
+        },
+      })
     }
 
     // enforce hard mode - all guesses must contain all previously revealed letters
     if (isHardMode) {
       const firstMissingReveal = findFirstUnusedReveal(currentGuess, guesses)
       if (firstMissingReveal) {
-        showErrorAlert(firstMissingReveal)
         setCurrentRowClass('jiggle')
-        return setTimeout(() => {
-          setCurrentRowClass('')
-        }, ALERT_TIME_MS)
+        return showErrorAlert(firstMissingReveal, {
+          onClose: () => {
+            setCurrentRowClass('')
+          },
+        })
       }
     }
 
