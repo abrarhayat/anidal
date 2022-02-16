@@ -134,6 +134,10 @@ function App() {
     setStoredIsHighContrastMode(isHighContrast)
   }
 
+  const clearCurrentRowClass = () => {
+    setCurrentRowClass('')
+  }
+
   useEffect(() => {
     saveGameStateToLocalStorage({ guesses, solution })
   }, [guesses])
@@ -178,18 +182,14 @@ function App() {
     if (!(currentGuess.length === MAX_WORD_LENGTH)) {
       setCurrentRowClass('jiggle')
       return showErrorAlert(NOT_ENOUGH_LETTERS_MESSAGE, {
-        onClose: () => {
-          setCurrentRowClass('')
-        },
+        onClose: clearCurrentRowClass,
       })
     }
 
     if (!isWordInWordList(currentGuess)) {
       setCurrentRowClass('jiggle')
       return showErrorAlert(WORD_NOT_FOUND_MESSAGE, {
-        onClose: () => {
-          setCurrentRowClass('')
-        },
+        onClose: clearCurrentRowClass,
       })
     }
 
@@ -199,9 +199,7 @@ function App() {
       if (firstMissingReveal) {
         setCurrentRowClass('jiggle')
         return showErrorAlert(firstMissingReveal, {
-          onClose: () => {
-            setCurrentRowClass('')
-          },
+          onClose: clearCurrentRowClass,
         })
       }
     }
