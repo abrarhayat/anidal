@@ -23,12 +23,14 @@ import {
   MAX_CHALLENGES,
   REVEAL_TIME_MS,
   GAME_LOST_INFO_DELAY,
+  WELCOME_INFO_MODAL_MS,
 } from './constants/settings'
 import {
   isWordInWordList,
   isWinningWord,
   solution,
   findFirstUnusedReveal,
+  unicodeLength,
 } from './lib/words'
 import { addStatsForCompletedGame, loadStats } from './lib/stats'
 import {
@@ -37,6 +39,7 @@ import {
   setStoredIsHighContrastMode,
   getStoredIsHighContrastMode,
 } from './lib/localStorage'
+import { default as GraphemeSplitter } from 'grapheme-splitter'
 
 import './App.css'
 import { AlertContainer } from './components/alerts/AlertContainer'
@@ -97,7 +100,9 @@ function App() {
     // if no game state on load,
     // show the user the how-to info modal
     if (!loadGameStateFromLocalStorage()) {
-      setIsInfoModalOpen(true)
+      setTimeout(() => {
+        setIsInfoModalOpen(true)
+      }, WELCOME_INFO_MODAL_MS)
     }
   }, [])
 
@@ -163,7 +168,7 @@ function App() {
 
   const onChar = (value: string) => {
     if (
-      currentGuess.length < MAX_WORD_LENGTH &&
+      unicodeLength(`${currentGuess}${value}`) <= MAX_WORD_LENGTH &&
       guesses.length < MAX_CHALLENGES &&
       !isGameWon
     ) {
@@ -172,14 +177,17 @@ function App() {
   }
 
   const onDelete = () => {
-    setCurrentGuess(currentGuess.slice(0, -1))
+    setCurrentGuess(
+      new GraphemeSplitter().splitGraphemes(currentGuess).slice(0, -1).join('')
+    )
   }
 
   const onEnter = () => {
     if (isGameWon || isGameLost) {
       return
     }
-    if (!(currentGuess.length === MAX_WORD_LENGTH)) {
+
+    if (!(unicodeLength(currentGuess) === MAX_WORD_LENGTH)) {
       setCurrentRowClass('jiggle')
       return showErrorAlert(NOT_ENOUGH_LETTERS_MESSAGE, {
         onClose: clearCurrentRowClass,
@@ -214,7 +222,7 @@ function App() {
     const winningWord = isWinningWord(currentGuess)
 
     if (
-      currentGuess.length === MAX_WORD_LENGTH &&
+      unicodeLength(currentGuess) === MAX_WORD_LENGTH &&
       guesses.length < MAX_CHALLENGES &&
       !isGameWon
     ) {
@@ -282,6 +290,8 @@ function App() {
         isGameWon={isGameWon}
         handleShare={() => showSuccessAlert(GAME_COPIED_MESSAGE)}
         isHardMode={isHardMode}
+        isDarkMode={isDarkMode}
+        isHighContrastMode={isHighContrastMode}
       />
       <SettingsModal
         isOpen={isSettingsModalOpen}

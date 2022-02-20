@@ -48,6 +48,7 @@ Open [http://localhost](http://localhost) in browser.
 - [Latindictionary.io](https://wordle.latindictionary.io/): Latin
 - [Lexoula](https://lexoula.com/): Ελληνικά (Greek)
 - [Malay](https://malay-wordle.netlify.app/): Bahasa Malaysia
+- [Mondle](https://mondle.vercel.app/): Mongolian
 - [Parolette](https://parolette.netlify.app/): Italian
 - [Parolle.it](https://parolle.it): Italian
 - [Pashtoodle](https://pashtoodle.lingdocs.com): Pashto
@@ -55,6 +56,7 @@ Open [http://localhost](http://localhost) in browser.
 - [Rudle](https://rudle.vercel.app): Russian
 - [Sindhal](https://hellosindh.com/sindhal): Sindhi
 - [Szózat](https://szozat.miklosdanka.com/): Hungarian
+- [Tàu Tâi-gí (Taigi Wordle)](https://tau.taigi.info/): Taigi (Taiwanese)
 - [Tlembung](https://tlembung.vercel.app/): Japanese
 - [Tugma](https://tugma.vercel.app): Hiligaynon (spoken in the Philippines)
 - [Ukrainian](https://goroh.pp.ua/games/wordle): Ukrainian
@@ -67,6 +69,7 @@ Open [http://localhost](http://localhost) in browser.
 - [Wordle-RO](https://wordle-ro.sirb.net/): Romanian
 - [Wortel](https://wortel.wrintiewaar.co.za): Afrikaans
 - [Wörtchen](https://woertchen.sofacoach.de): German
+- [SGWordle](https://sgwordle.now.sh/): Swiss German
 - [kelma.mt](https://kelma.mt): Maltese
 - [Слівце](https://slivce.com/): Ukrainian
 - [ਪੰਜਾਬੀ](https://punjabipuzzle.netlify.app/): Punjabi
@@ -89,6 +92,7 @@ Open [http://localhost](http://localhost) in browser.
 - [Harry Potter](https://www.harrypotterwordle.com/): Harry Potter
 - [JoJodle](https://jojo-news.com/fun/jojodle/): JoJo’s Bizarre Adventure
 - [Mahjong Handle](https://mahjong-handle.update.sh/): Mahjong Hands
+- [Filmle](https://filmle.now.sh/): Movie titles
 - [Movie Wordle](https://movie-wordle.vercel.app): Bollywood
 - [Murdle](https://murdle.vercel.app/): Spooky hangman mashup
 - [Poker Handle](https://kikychow.github.io/poker-wordle/): Poker
