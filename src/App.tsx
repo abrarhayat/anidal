@@ -247,13 +247,15 @@ function App() {
         setIsStatsModalOpen={setIsStatsModalOpen}
         setIsSettingsModalOpen={setIsSettingsModalOpen}
       />
-      <div className="pt-2 pb-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <Grid
-          guesses={guesses}
-          currentGuess={currentGuess}
-          isRevealing={isRevealing}
-          currentRowClassName={currentRowClass}
-        />
+      <div className="pt-2 pb-8 max-w-7xl mx-auto sm:px-6 lg:px-8  h-screen flex flex-col">
+        <div className='pb-6 grow'>
+          <Grid
+            guesses={guesses}
+            currentGuess={currentGuess}
+            isRevealing={isRevealing}
+            currentRowClassName={currentRowClass}
+          />
+        </div>
         <Keyboard
           onChar={onChar}
           onDelete={onDelete}
