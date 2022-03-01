@@ -1,3 +1,4 @@
+import sha256 from 'crypto-js/sha256'
 import { useState, useEffect } from 'react'
 import { Grid } from './components/grid/Grid'
 import { Keyboard } from './components/keyboard/Keyboard'
@@ -68,7 +69,7 @@ function App() {
   const [isRevealing, setIsRevealing] = useState(false)
   const [guesses, setGuesses] = useState<string[]>(() => {
     const loaded = loadGameStateFromLocalStorage()
-    if (loaded?.solution !== solution) {
+    if (loaded?.solutionHash !== sha256(solution).toString()) {
       return []
     }
     const gameWasWon = loaded.guesses.includes(solution)
@@ -149,7 +150,8 @@ function App() {
   }
 
   useEffect(() => {
-    saveGameStateToLocalStorage({ guesses, solution })
+    const solutionHash: string = sha256(solution).toString()
+    saveGameStateToLocalStorage({ guesses, solutionHash })
   }, [guesses])
 
   useEffect(() => {
