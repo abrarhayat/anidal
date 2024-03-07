@@ -70,20 +70,11 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         >
           This is the source for the current iteration
         </a>
-        {' and '}
-        <a
-          href="https://github.com/cwackerfuss/react-wordle"
-          className="underline font-bold"
-          target={'_blank'}
-          rel="noreferrer"
-        >
-          this is the base source
-        </a>{' '}
         <span>
           <br></br>
           <br></br>Author for this iteration:{' '}
           <a
-            href="https://abrarhayat.gatsbyjs.io"
+            href="https://abrarhayat.vercel.app"
             className="underline font-bold"
             target={'_blank'}
             rel="noreferrer"
