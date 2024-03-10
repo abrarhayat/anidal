@@ -265,8 +265,6 @@ export const VALID_GUESSES = [
 
   'toads',
 
-  'taipan',
-
   'tabby',
 
   'takin',
@@ -302,8 +300,6 @@ export const VALID_GUESSES = [
   'wrens',
 
   'zebra',
-
-  'cairn ',
 
   'billy',
 
@@ -346,8 +342,6 @@ export const VALID_GUESSES = [
   'lykoi',
 
   'asian',
-
-  'somali',
 
   'satyr',
 

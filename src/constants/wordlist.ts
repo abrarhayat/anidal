@@ -49,8 +49,6 @@ export const WORDS = [
 
   'pekan',
 
-  'taipan',
-
   'fossa',
 
   'addax',
@@ -239,13 +237,9 @@ export const WORDS = [
 
   'chiru',
 
-  'cairn ',
-
   'billy',
 
   'mcnab',
-
-  'somali',
 
   'kerry',
 
